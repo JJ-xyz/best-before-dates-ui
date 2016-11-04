@@ -1,0 +1,93 @@
+<!-- You are inside <body ng-controller="UserController as users">  -->
+<div class="module-card" ng-show="users.showEditForm">
+  <form class="new-item" ng-submit="users.editItem(users.editedItem)" method="post">
+    <div class="module-card-title"><input type="text" ng-model="users.editedItem.name" id="name" value="Click to add item"></div>
+    <div class="module-card-meta">
+      <div class="module-card-category">
+        <span class="fa fa-tag"></span>
+        <label for="purchaseDate">Purchase Date:      </label>
+        <span><input type="date" ng-model="users.editedItem.purchaseDate" id="PurchaseDate" placeholder=""></span>
+      </div>
+      <div class="module-card-author">
+        <label for="">Expiration Date:      </label>
+        <span class="fa fa-user"></span>
+        <span><input type="date" ng-model="users.editedItem.expirationDate" id="expirationDate" placeholder=""></span>
+      </div>
+    </div> <!-- /module-card-meta -->
+
+     <div class="module-card-bottom">
+      <!-- <input type="url" ng-model="users.editedItem.imageUrl" id="imageUrl" placeholder="image url"> -->
+      <div>
+        <input type="text" ng-model="users.editedItem.whereToBuy" id="buy" placeholder="Where to Buy">
+        <input type="text" ng-model="users.editedItem.upcNumber" id="upc" placeholder="UPC Number">
+        <input type="text" ng-model="users.editedItem.inUse" id="in-use" placeholder="In Use">
+        <input type="text" ng-model="users.editedItem.rate" id="rate" placeholder="Rate">
+        <textarea ng-model="users.editedItem.description" rows="6" cols="25" id="description" placeholder="describe your food item in 160 characters or less" maxlength="160"></textarea>
+      </div>
+      <div class="module-card-button-wrap">
+        <button class="module-card-button">Update!</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="module-card-wrap">
+  <!-- Add a new destination -->
+  <div class="module-card">
+    <form class="new-item" ng-submit="users.addItem()" method="post">
+      <div class="module-card-title"><input type="text" ng-model="users.newItem.name" id="name" placeholder="Click to add item"></div>
+      <div class="module-card-meta">
+        <div class="module-card-category">
+          <span class="fa fa-tag"></span>
+          <label for="purchaseDate">Purchase Date:      </label>
+          <span><input type="date" ng-model="users.newItem.purchaseDate" id="purchaseDate" placeholder=""></span>
+        </div>
+        <div class="module-card-author">
+          <label for="expirationDate">Expiration Date:      </label>
+          <span class="fa fa-user"></span>
+          <span><input type="date" ng-model="users.editedItem.expirationDate" id="expiration" placeholder=""></span>
+        </div>
+      </div> <!-- /module-card-meta -->
+
+      <div class="module-card-bottom">
+        <!-- <input type="url" ng-model="users.newItem.imageUrl" id="imageUrl" placeholder="image url"> -->
+        <div>
+          <input type="text" ng-model="users.newItem.whereToBuy" id="buy" placeholder="Where to Buy">
+          <input type="text" ng-model="users.newItem.upcNumber" id="upc" placeholder="UPC Number">
+          <input type="text" ng-model="users.newItem.inUse" id="in-use" placeholder="In Use">
+          <input type="text" ng-model="users.newItem.rate" id="rate" placeholder="Rate">
+          <textarea ng-model="users.newItem.description" rows="6" cols="25" id="description" placeholder="describe your food item in 160 characters or less" maxlength="160"></textarea>
+        </div>
+        <div class="module-card-button-wrap">
+          <button class="module-card-button">Add!</button>
+        </div>
+      </div>
+    </form>
+  </div>
+<!-- Repeat through all items and display as cards -->
+  <div class="module-card" ng-repeat="item in users.myItems">
+    <div class="module-card-title">{{item.name}}</div>
+    <div class="module-card-meta">
+      <div class="module-card-category">
+        <span class="fa fa-tag"></span>
+        <span>{{item.purchaseDate | date: 'mediumDate'}}</span>
+      </div>
+      <div class="module-card-author">
+        <span class="fa fa-user"></span>
+        <span>{{item.expirationDate | date: 'mediumDate'}}</span>
+      </div>
+    </div> <!-- /module-card-meta -->
+
+    <div class="module-card-bottom">
+      <!-- <img src="{{item.imageUrl}}" alt="" class="module-card-img" /> -->
+
+      <div>
+        <p>{{item.description}}</p>
+      </div>
+      <div class="module-card-button-wrap">
+        <button ng-click="users.deleteItem(item.itemId)" class="module-card-button">Delete Me!</button>
+        <button ng-click="users.setItemToEdit(item)" class="module-card-button">Edit Me!</button>
+      </div>
+    </div>
+  </div>
+</div>
