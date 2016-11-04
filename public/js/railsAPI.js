@@ -8,10 +8,10 @@
     var self = this;
     var rootUrl = "http://localhost:3000"
 
-    $http.get(`${rootUrl}/api/households`)
+    $http.get(`${rootUrl}/api/items`)
       .then(function(response) {
           self.households = response.data;
-          console.log(self.households[0].name);
+          console.log(response);
     });
   }
 })()
