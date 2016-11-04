@@ -18,8 +18,6 @@
       console.log("ItemList", response.data);
     })
 
-
-
     // function getAllItems(household) {
     //   $http.get(`${rootUrl}/api/items`, household)
     //   .then(function(response) {
