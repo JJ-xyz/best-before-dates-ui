@@ -1,9 +1,20 @@
 body {
+  /*background: url(http://3v6x691yvn532gp2411ezrib.wpengine.netdna-cdn.com/wp-content/uploads/sites/default/files/story_images/20100129SAWG_fg14a.jpg);
+  background-repeat: no-repeat;*/
   background-color: rgba(203,200,149, 0.4);
+  /*background-size: 100% 100%;*/
   margin-left: 1rem;
-  margin-bottom: 3rem;
+  /*margin-bottom: 3rem;*/
 }
 
+.hero-image { /* image on the home state */
+ min-height: 80%;
+ /*height: auto;*/
+ min-width: 1024px;
+ box-shadow:  10px 10px 10px 10px #888;
+ margin-top: 1%;
+ width: 100%;
+}
 
 .title { /* The site's name and tagline */
   color: #452804;
@@ -26,6 +37,8 @@ body {
    line-height: 90%;
    margin: 2rem;
  }
+
+
 
  form {
   font-family: 'Permanent Marker', cursive;
@@ -56,7 +69,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: ;
+  align-content: center;
+  padding-top: 50%;
 
 }
 
@@ -82,9 +96,16 @@ input[type=submit],.module-card-button {
   margin: 0.25rem;
 }
 
+.module-card-bottom {
+  background-color: red;
+}
 
-
-
+input[type=text],input[type=password] {
+  border: none;
+  margin: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
 
 
 
