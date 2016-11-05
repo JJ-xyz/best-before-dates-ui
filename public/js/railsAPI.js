@@ -9,27 +9,39 @@
     var rootUrl = "http://localhost:3000";
 
 
-    $http({
-      method: 'GET',
-      url: `${rootUrl}/api/items`
-    })
-    .then(function(response){
-      self.itemList = response.data;
-      console.log("ItemList", response.data);
-    })
+    function getAllItems(household){
+      $http({
+        method: 'GET',
+        url: `${rootUrl}/api/items`,
+        data: household,
+        responseType: 'json'
+      })
+      .then(function(response){
+        self.itemList = response.data;
+        console.log("ItemList", response.data);
+      })
+      .catch((err) => { console.log(err) });
+    }
 
-    // function getAllItems(household) {
-    //   $http.get(`${rootUrl}/api/items`, household)
-    //   .then(function(response) {
-    //     self.Items = response;
-    //     console.log("ItemList here", self.Items);
-    //     // $state.go('**the partial**', {url: '/the-url'})
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    // }
+    function getOneItem(household, itemId){
+      $http({
+        method: 'GET',
+        url: `${rootUrl}/api/items/${itemId}`,
+        data: household,
+        responseType: 'json'
+      })
+      .then(function(response){
+        self.oneItem = response.data;
+        console.log("OneItem", response.data);
+      })
+      .catch((err) => { console.log(err) });
+    }
+
+
+    // Public calls
+    this.getAllItems = getAllItems;
+    this.getOneItem = getOneItem;
+
+
   }
-
-
-  })()
+})()

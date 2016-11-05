@@ -10,7 +10,18 @@
     <script src='js/app.js'></script>
     <script src='js/railsAPI.js'></script>
   </head>
-  <body ng-controller="railsAPI as rails">
+  <body>
+    <!-- Remove down -->
+  <div ng-controller="railsAPI as rails">
+    <P></p>
+    <a ng-click="rails.getAllItems()"> all itmes </a>
+    <a ng-click="rails.getOneItem('smile','1')"> one itme </a>
+    <p>{{rails.oneItem}} === {{rails.oneItem.name}}</p>
+    <div ng-repeat="items in rails.itemList" ng-model="cada">
+      <p>{{items.name}} ::: {{items.description}}</p>
+    </div>
+  </div>
+    <!-- remove up -->
     <ul ng-repeat="households in rails.households">
       <!-- <li>{{households.name}}</li> -->
     </ul>
