@@ -36,13 +36,27 @@ body {
   align-items: center;
   justify-content: center;
   padding-top: 17%;
+  text-decoration: none;
 }
 
 #signup {
+  align-items: center;
+  font-family: 'Permanent Marker', cursive;
+  display: flex;
+  justify-content: center;
   padding-top: 0%;
+}
+a {
+    text-decoration: none;
+}
+
+.signup-form {
+  background-color: red;
+  display:inline-block;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: ;
 
 }
 
