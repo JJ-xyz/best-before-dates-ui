@@ -22,7 +22,7 @@ main {
   /*color: rgba(87, 98, 134, 1); blue*/
   color: rgb(144, 6, 6);
   font-family: 'Permanent Marker', cursive;
-  font-size: 6em;
+  font-size: 5em;
   font-weight: 100;
   justify-content: center;
   text-align: center;
@@ -70,15 +70,18 @@ main {
   padding-top: 0%;
 }
 
+#signup-2 {
+  color: rgb(144, 6, 6);
+}
 
 .signup-form {
-  background-color: red;
   display:inline-block;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
   padding-top: 50%;
+  margin-top: 20%;
 
 }
 
@@ -103,9 +106,6 @@ input[type=submit],.module-card-button {
   margin: 0.25rem;
 }
 
-.module-card-bottom {
-  background-color: red;
-}
 /*
 input[type=text],input[type=password] {
   border: none;

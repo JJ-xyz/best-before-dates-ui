@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.new-item {
+  flex-direction: column;
+}
+
 .module-card-wrap {
   max-width: 95%;
   display: flex;
