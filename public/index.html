@@ -11,6 +11,7 @@
     <script src='js/app.js'></script>
     <script src='js/railsAPI.js'></script>
   </head>
+
   <body>
     <!-- Remove down -->
   <div ng-controller="railsAPI as rails">
@@ -61,7 +62,7 @@
 
           <div class="right">
             <form class="logout" ng-submit="users.logout()" method="post">
-              <input ng-if="users.currentUser" type="submit" name="logout" value="Log Out"> <!-- CHANGE NG-IF -->
+              <input ng-if="users.currentUser" type="submit" name="logout" value="Sign Out"> <!-- CHANGE NG-IF -->
             </form>
             <!-- <form ng-submit="users.search()">
               <input type="text" name="text" ng-model="users.searchText" placeholder="food name">
