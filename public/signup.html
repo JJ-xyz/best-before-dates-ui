@@ -10,10 +10,10 @@
   <script src='js/railsAPI.js'></script>
 </head>
 
-
-
-
-
+  <a ui-sref-active="active" ui-sref="home" class="middle">
+    <h1 class="title">Best Before Dates</h1>
+    <h2 class="h2">Get alerts before your food expires!</h2>
+  </a>
 <div class="signup-form" ng-show="true" id="signup">
 <!-- <p style="color:red">{{ users.signuperror }}</p> -->
   <form ng-submit="users.signup()" method="post" ng-if="!users.currentUser">
