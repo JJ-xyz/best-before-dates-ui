@@ -1,9 +1,9 @@
 <div class="signup-form" ng-show="true" id="signup">
 <!-- <p style="color:red">{{ users.signuperror }}</p> -->
-  <form ng-submit="users.signup()" method="post" ng-if="!users.currentUser">
+  <form ng-submit="railsAPI.signup(newUser)" method="post" ng-if="!users.currentUser">
      <p><strong>Sign up</strong></p>
-    <input type="text" ng-model="users.signupusername" placeholder="username"><br>
-    <input type="password" ng-model="users.signuppassword" placeholder="password"><br>
+    <input type="text" ng-model="newUser.username" placeholder="username"><br>
+    <input type="password" ng-model="newUser.password" placeholder="password"><br>
     <input type="text" ng-model="users.signupemail" placeholder="email"><br>
     <input type="text" ng-model="users.signuphousehold" placeholder="household"><br>
     <input type="submit" name="test" value="Sign up"><br>
