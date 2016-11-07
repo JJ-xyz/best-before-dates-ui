@@ -1,4 +1,3 @@
-<!-- You are inside <body ng-controller="UserController as users">  -->
 <head>
   <meta charset="utf-8">
   <title>Best Before Dates</title>
@@ -10,7 +9,6 @@
   <script src='js/app.js'></script>
   <script src='js/railsAPI.js'></script>
 </head>
-
 
 <div class="module-card" ng-show="users.showEditForm">
   <form class="new-item" ng-submit="users.editItem(users.editedItem)" method="post">
@@ -45,7 +43,6 @@
 </div>
 
 <div class="module-card-wrap">
-  <!-- Add a new destination -->
   <div class="module-card">
     <form class="new-item" ng-submit="users.addItem()" method="post">
       <div class="module-card-title"><input type="text" ng-model="users.newItem.name" id="name" placeholder="Click to add item"></div>

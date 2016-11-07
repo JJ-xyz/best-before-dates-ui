@@ -6,33 +6,29 @@
 
   function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
 
-    $urlRouterProvider.otherwise("/index");
 
     $stateProvider
-    .state('index',{
+    .state('index', {
       url: '/index',
-      templateUrl: 'index.html'
-      // controller: 'AuthController',
-      // controllerAs: 'authCtrl'
+      templateUrl: 'index.html',
     })
     .state('signup',{
       url: '/signup',
       templateUrl: 'signup.html',
-      // controller: 'AuthController',
-      // controllerAs: 'authCtrl'
     })
     .state('user',{
       url: '/user',
       templateUrl: 'user.html',
-      // controller: 'AuthController',
-      // controllerAs: 'authCtrl'
     });
 
+
+
+    $urlRouterProvider.otherwise('/')
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
     });
-  }
+  } // end MainRouter function
 
-})()
-console.log('app.js');
+})();
+// console.log('app.js');
