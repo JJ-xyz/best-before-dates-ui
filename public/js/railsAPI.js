@@ -1,6 +1,6 @@
 (function(){
   console.log("===== API talking port 3000 =====");
-  angular.module('bestBeforeDates', [])
+  angular.module('bestBeforeDates')
     .controller('railsAPI', ['$http', railsAPI]);
 
   function railsAPI($http){
@@ -8,43 +8,23 @@
     var self = this;
     var rootUrl = "http://localhost:3000";
 
-  self.signup = function(userPass){
-    $http.post(`${rootUrl}/api/users`, {user: {username: userPass.username, password: userPass.password }})
-    .then(function(response) {
-      self.user = response.data.user
-      localStorage.setItem('user_id', JSON.stringify(response.data.user.id));
-      localStorage.setItem('token', JSON.stringify(response.data.token));
-      self.getUserAlbums(self.user.id);
-      $state.go('home', {url: '/user', user: response.data.user});
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
-  }
+    this.currentUser = null;
+    this.editedItem  = {};
+    this.showEditForm = false;
+    this.username     = '';
+    this.password     = '';
+    this.signupusername = null;
+    this.signuppassword = null;
+    this.myItems = [];
 
-    // // User login
-    // function login(userCheck){
-    //   $http.post(`${rootUrl}/api/users/login`, {user: {username: userCheck.username, password: userCheck.password}})
-    //   .then(function(response){
-    //     self.user = response.data.user
-    //     localStorage.setItem('user_id', response.data.user.id);
-    //     localStorage.setItem('token', response.data.token);
-    //     //self.getUserAlbums(self.user.id);
-    //     //$state.go('home', {url: '/user-home', user: response.data.user});
-    //   })
-    //   .catch(function(err){
-    //     console.error(err);
-    //   })
-    // }
-
-    // // Logout
-    //   function logout = function() {
-    //     self.user = null;
-    //     localStorage.removeItem('token');
-    //     localStorage.removeItem('user_id');
-    //     //$state.go('welcome', {url: '/'});
-    //   }
-
+    this.newItem = {
+      name: null,
+      purchaseDate: null,
+      expirationDate: null,
+      whereToBuy: null,
+      inUse: null,
+      upcNumber: null,
+    };
 
     function getAllItems(household){
       $http({
