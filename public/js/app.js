@@ -1,38 +1,34 @@
-(function(){
-  angular.module('bestBeforeDates', ['ui.router'])
-  .config(MainRouter);
+(function() {
+  angular
+	  .module('bestBeforeDays', ['ui.router'])
+    .config(MainRouter);
 
-  MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
+  MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
-
-    $urlRouterProvider.otherwise("/index");
-
+  function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
-    .state('index',{
-      url: '/index',
-      templateUrl: 'index.html'
-      // controller: 'AuthController',
-      // controllerAs: 'authCtrl'
-    })
-    .state('signup',{
-      url: '/signup',
-      templateUrl: 'signup.html',
-      // controller: 'AuthController',
-      // controllerAs: 'authCtrl'
-    })
-    .state('user',{
-      url: '/user',
-      templateUrl: 'user.html',
-      // controller: 'AuthController',
-      // controllerAs: 'authCtrl'
-    });
+      .state('home', {
+        url: "/",
+        templateUrl: "home.html",
+      })
+      .state('items', {
+        url: "/items",
+        templateUrl: "items.html",
+      })
+      .state('logout', {
+        url: "/",
+        templateUrl: "home.html",
+      })
+      .state('signup', {
+        url: "/signup",
+        templateUrl: "signup.html",
+      });
+
+    $urlRouterProvider.otherwise('/');
 
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
     });
   }
-
 })()
-console.log('app.js');

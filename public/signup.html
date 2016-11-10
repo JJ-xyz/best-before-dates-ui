@@ -1,25 +1,21 @@
-<head>
-  <meta charset="utf-8">
-  <title>Best Before Dates</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/flexbox-card.css">
-  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-  <script src='js/app.js'></script>
-  <script src='js/railsAPI.js'></script>
-</head>
-
-<div class="signup-form" ng-show="true" id="signup">
-<!-- <p style="color:red">{{ users.signuperror }}</p> -->
-
-  <form ng-submit="railsAPI.signup(newUser)" method="post" ng-if="!users.currentUser">
-     <p><strong>Sign up</strong></p>
-    <input type="text" ng-model="newUser.username" placeholder="username"><br>
-    <input type="password" ng-model="newUser.password" placeholder="password"><br>
-
-    <input type="text" ng-model="users.signupemail" placeholder="email"><br>
-    <input type="text" ng-model="users.signuphousehold" placeholder="household"><br>
-    <input type="submit" name="test" value="Sign up"><br>
+<div class="x-entry">
+  <form ng-submit="api.signup(account)">
+    <div>
+      <label for="username">username</label>
+      <input type="text" ng-model="account.username" required>
+    </div>
+    <div>
+      <label for="password">password</label>
+      <input type="password" ng-model="account.password" required>
+    </div>
+    <div>
+      <label for="email">email</label>
+      <input type="text" ng-model="account.email" required>
+    </div>
+    <div>
+      <label for="Household">Household</label>
+      <input type="text" ng-model="account.household" required>
+    </div>
+    <button class="btn btn-add" type="submit">signup</button>
   </form>
 </div>

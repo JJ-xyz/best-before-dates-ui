@@ -1,84 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="bestBeforeDates">
-  <head>
-    <meta charset="utf-8">
-    <title>Best Before Dates</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/flexbox-card.css">
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-    <script src='js/app.js'></script>
-    <script src='js/railsAPI.js'></script>
-  </head>
+<html ng-app="bestBeforeDays">
+	<head>
+		<meta charset="utf-8">
+		<title>Best Before Dates</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/apiController.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
 
-  <body>
-    <!-- Remove down -->
-  <div ng-controller="railsAPI as rails">
-    <P></p>
-    <a ng-click="rails.getAllItems()"> all items </a>
-    <a ng-click="rails.getOneItem('smile','2')"> one item </a>
-    <a ng-click="rails.getAllHouseholds()"> all households </a>
-    <a ng-click="rails.getOneHousehold('3')"> one households </a>
-    <p>{{rails.oneItem}} === {{rails.oneItem.name}}</p>
-    <div ng-repeat="items in rails.itemList" ng-model="cada">
-      <p>{{items.name}} ::: {{items.description}}</p>
-    </div>
-  </div>
-    <!-- remove up -->
-    <ul ng-repeat="households in rails.households">
-      <!-- <li>{{households.name}}</li> -->
-    </ul>
-        <a ui-sref-active="active" ui-sref="home" class="middle">
-          <h1 class="title">Best Before Dates</h1>
-          <h2 class="h2">Get alerts before your food expires!</h2>
-        </a>
-      <div class="left">
-        <div ng-show="true" class="login">
-          <form id="login" ng-submit="users.login()" method="post" ng-if="!users.currentUser">
-            <!-- <p><strong>Log in</strong></p> -->
-            <input type="text" ng-model="users.username" placeholder="username">
-            <input type="password" ng-model="users.password" placeholder="password">
-            <input type="submit" name="test" value="Log In">
-          </form>
-            <div ng-show="true" id="signup">
-              <h4>Not a member? <a ui-sref="signup.html">Sign Up Now!</a></h4>
-            </div>
-            <p style="color:red">{{ users.signuperror }}</p>
-            <!-- <form id="signup" ng-submit="users.signup()" method="post" ng-if="!users.currentUser">
-                <!- <p><strong>Sign up</strong></p> -->
-                <!-- <input type="text" ng-model="users.signupusername" placeholder="username">
-                <input type="password" ng-model="users.signuppassword" placeholder="password">
-                <input type="submit" name="test" value="Sign up">
-              </form> -->
-            </div>
-
-            <a ui-sref-active="active" ui-sref="user" ng-show="true" class="welcome" ng-if="users.currentUser"> <!-- CHANGE NG-HIDE -->
-              <h3>Welcome to {{ users.currentUser }}'s fridge'!</h3>
-            </a>
-          </div>
-
-
-
-          <div class="right">
-            <form class="logout" ng-submit="users.logout()" method="post">
-              <input ng-if="users.currentUser" type="submit" name="logout" value="Sign Out"> <!-- CHANGE NG-IF -->
-            </form>
-            <!-- <form ng-submit="users.search()">
-              <input type="text" name="text" ng-model="users.searchText" placeholder="food name">
-              <input type="submit" name="submit" value="search"> -->
-              <!-- ui-sref-active="active" ui-sref="search-results"  -->
-            </form>
-          </div>
-
-        </header>
-
-        <main ui-view>
-
-        </main>
-
-        <footer>
-        <p>Made with &#9829; by FJS</p>
-        </footer>
-      </body>
-    </html>
+	<body ng-controller="ApiController as api">
+		<header>
+			<h1>BEST BEFORE DATES</h1>
+			<h4>Welcome {{api.currentUser}} | <a ng-click="api.logout()">logout</a></h4>
+		</header>
+		<nav>
+			<a ui-sref-active="active" ui-sref="home">Home</a>
+			<a ui-sref-active="active" ui-sref="items">Items</a>
+		</nav>
+		<main ui-view></main>
+	</body>
+</html>

@@ -1,22 +1,14 @@
 {
-  "name": "best-before-dates-ui",
+  "name": "angular-ui-router-starter-code-node",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JJ-xyz/best-before-dates-ui.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JJ-xyz/best-before-dates-ui/issues"
-  },
-  "homepage": "https://github.com/JJ-xyz/best-before-dates-ui#readme",
   "dependencies": {
     "express": "^4.14.0",
     "path": "^0.12.7"

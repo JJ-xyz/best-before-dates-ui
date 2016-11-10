@@ -1,0 +1,16 @@
+
+<section class="x-entry">
+  <ul>
+    <li ng-repeat="item in api.itemList">
+      <button class="btn btn-add" ng-click="api.deleteTodo($index)">-</button>
+      <p>{{ item.name }} {{item.exp_date}} {{item.description}}</p>
+    </li>
+  </ul>
+
+  <form ng-submit="api.addNewItem()">
+    <input type="submit" class="btn btn-add" value="+">
+    <input type="text" placeholder="name" ng-model="api.name">
+    <input type="date" placeholder="Expiration Date" ng-model="api.exp_date">
+    <input type="text-box" placeholder="Description" ng-model="api.description">
+  </form>
+</section>
